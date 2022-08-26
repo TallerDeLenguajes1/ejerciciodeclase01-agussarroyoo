@@ -5,13 +5,14 @@ namespace Problema03
 
     class Program
     {
+
         static void Main(string[] args)
         {
-            Auto Auto1 = CrearAutoFiat(2020);            
+            Auto Auto2 = CrearAutoPeugeot(777);
+            MostrarAuto(Auto2);
+            Auto Auto1 = CrearAutoFiat();            
             MostrarAuto(Auto1);            
 
-            Auto Auto2 = CrearAutoPeugeot();
-            MostrarAuto(Auto2);
         }
 
         static Auto CrearAutoFiat(int? anio = null)
@@ -46,10 +47,20 @@ namespace Problema03
             return auto;
         }
 
+    
         static void MostrarAuto(Auto auto)
         {
-            Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
-            Console.ReadLine();
+            try
+            {
+                Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
+                Console.ReadLine();
+            }
+            catch (System.Exception)
+            {
+                
+                System.Console.WriteLine("El auto no tiene año asignado");
+            }
+            
         }
     }
 }
